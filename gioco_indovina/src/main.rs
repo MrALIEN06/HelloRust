@@ -11,21 +11,23 @@ fn main() {
 
     println!("Il numero segreto è: {}", numero_segreto);
 
-    println!("Prego, digita un tentativo.");
+    loop {
+        println!("Prego, digita un tentativo.");
 
-    let mut tentativo = String::new();
+        let mut tentativo = String::new();
 
-    io::stdin().read_line(&mut tentativo)
-        .expect("Non si riesce a leggere la riga");
+        io::stdin().read_line(&mut tentativo)
+            .expect("Non si riesce a leggere la riga");
 
-    let tentativo: u32 = tentativo.trim().parse()
-        .expect("Prego, digita un numero!");
+        let tentativo: u32 = tentativo.trim().parse()
+            .expect("Prego, digita un numero!");
 
-    println!("Hai digitato: {}", tentativo);
+        println!("Hai digitato: {}", tentativo);
 
-    match tentativo.cmp(&numero_segreto) {
-        Ordering::Less    => println!("Troppo piccolo!"),
-        Ordering::Greater => println!("Troppo grande!"),
-        Ordering::Equal   => println!("Hai vinto!"),
+        match tentativo.cmp(&numero_segreto) {
+            Ordering::Less    => println!("Troppo piccolo!"),
+            Ordering::Greater => println!("Troppo grande!"),
+            Ordering::Equal   => println!("Hai vinto!"),
+        }
     }
 }
