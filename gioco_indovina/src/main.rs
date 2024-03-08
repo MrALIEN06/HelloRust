@@ -27,7 +27,10 @@ fn main() {
         match tentativo.cmp(&numero_segreto) {
             Ordering::Less    => println!("Troppo piccolo!"),
             Ordering::Greater => println!("Troppo grande!"),
-            Ordering::Equal   => println!("Hai vinto!"),
+            Ordering::Equal   => {
+                println!("Hai vinto!");
+                break;
+            }
         }
     }
 }
