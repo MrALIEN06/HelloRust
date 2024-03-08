@@ -18,6 +18,9 @@ fn main() {
     io::stdin().read_line(&mut tentativo)
         .expect("Non si riesce a leggere la riga");
 
+    let tentativo: u32 = tentativo.trim().parse()
+        .expect("Prego, digita un numero!");
+
     println!("Hai digitato: {}", tentativo);
 
     match tentativo.cmp(&numero_segreto) {
